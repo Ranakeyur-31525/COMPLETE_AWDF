@@ -1,0 +1,28 @@
+{
+  "name": "p04-express-task-api",
+  "version": "1.0.0",
+  "description": "Practical 4: Building a RESTful API with Node.js and Express",
+  "main": "server.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "keywords": [
+    "express",
+    "node",
+    "rest-api",
+    "in-memory",
+    "charusat"
+  ],
+  "author": "Ranak (Ranakeyur-31525)",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9"
+  }
+}

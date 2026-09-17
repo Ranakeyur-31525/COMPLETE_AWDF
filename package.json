@@ -1,0 +1,22 @@
+{
+  "name": "awdf-practicals-workspace",
+  "version": "1.0.0",
+  "description": "Advanced Web Development Frameworks (ITUE301) Practicals Workspace - CHARUSAT CSPIT (IT)",
+  "scripts": {
+    "dev:backend": "node combined-app/backend/server.js",
+    "dev:frontend": "npm --prefix combined-app/frontend run dev",
+    "seed": "node combined-app/backend/seed.js",
+    "p1": "npm --prefix Practical_01_Student_Portfolio run dev",
+    "p2": "npm --prefix Practical_02_Routing_State run dev",
+    "p3": "npm --prefix Practical_03_GitHub_API run dev",
+    "p4": "npm --prefix Practical_04_Express_REST_API run dev",
+    "p5": "npm --prefix Practical_05_MongoDB_Mongoose run dev",
+    "p6:backend": "npm --prefix Practical_06_FullStack_App/backend run dev",
+    "p6:frontend": "npm --prefix Practical_06_FullStack_App/frontend run dev",
+    "p6:seed": "npm --prefix Practical_06_FullStack_App/backend run seed"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "mongoose": "^8.5.2"
+  }
+}

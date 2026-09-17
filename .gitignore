@@ -42,3 +42,7 @@ build/
 *.njsproj
 *.sln
 *.sw?
+
+# Scratch & Temporary folders
+scratch/
+*.zip

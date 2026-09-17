@@ -1,0 +1,20 @@
+{
+  "name": "awdf-combined-backend",
+  "version": "1.0.0",
+  "description": "Unified Express & MongoDB Backend API for all AWDF Practicals (ITUE301)",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "seed": "node seed.js"
+  },
+  "keywords": ["express", "mongodb", "mongoose", "charusat", "awdf", "rest-api"],
+  "author": "Ranak (Ranakeyur-31525)",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "mongoose": "^8.5.2"
+  }
+}
