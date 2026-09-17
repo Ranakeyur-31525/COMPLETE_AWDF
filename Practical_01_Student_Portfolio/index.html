@@ -4,6 +4,15 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.getRegistrations().then(function (registrations) {
+          for (var reg of registrations) {
+            reg.unregister();
+          }
+        });
+      }
+    </script>
     <meta name="description" content="Keyur Rakeshbhai Rana - Hardware & Embedded Systems Engineer | IoT & Full-Stack Developer Portfolio" />
     <title>Keyur Rakeshbhai Rana | Portfolio</title>
   </head>

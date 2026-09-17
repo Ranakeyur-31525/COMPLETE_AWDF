@@ -1,0 +1,59 @@
+version: '3.8'
+
+# Practical 11: Containerization with Docker & Docker Compose
+# Orchestrates 3 multi-tier services: React Frontend, Express Backend, MongoDB Database
+
+services:
+  # 1. Database Tier: Official MongoDB Container with Persistent Named Volume
+  mongodb:
+    image: mongo:6.0
+    container_name: awdf-mongodb-p11
+    restart: always
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db # Supplementary Problem 3: Data persistence across restarts
+    networks:
+      - app-network
+
+  # 2. Application Backend Tier: Node.js & Express REST API
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: awdf-backend-p11
+    restart: always
+    ports:
+      - "5000:5000"
+    environment:
+      - PORT=5000
+      - MONGODB_URI=mongodb://mongodb:27017/taskdb # Uses service name 'mongodb'
+      - NODE_ENV=production
+    depends_on:
+      - mongodb
+    networks:
+      - app-network
+
+  # 3. Client Frontend Tier: Multi-stage React + Nginx Alpine Image
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: awdf-frontend-p11
+    restart: always
+    ports:
+      - "5173:80" # Map host port 5173 to container Nginx port 80
+    depends_on:
+      - backend
+    networks:
+      - app-network
+
+# Named volume for database data durability (Supplementary Problem 3)
+volumes:
+  mongo-data:
+    driver: local
+
+# Internal isolated bridge network connecting all containers
+networks:
+  app-network:
+    driver: bridge

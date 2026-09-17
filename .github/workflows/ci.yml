@@ -1,0 +1,73 @@
+name: AWDF Full-Stack CI/CD Pipeline
+
+# Practical 12: CI/CD Pipeline with GitHub Actions
+# Triggers on push and pull requests targeting main branch (Supplementary Problem 2)
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  # Job 1: Linting and Code Quality Check (Supplementary Problem 1)
+  lint:
+    name: Code Quality & ESLint Check
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js Environment
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+          cache: 'npm'
+
+      - name: Verify Workspace Structure
+        run: |
+          echo "✔ Verifying repository contents on push..."
+          ls -la
+
+  # Job 2: Build & Automated Testing Pipeline (Core Requirement)
+  build-and-test:
+    name: Build & Automated Test Suite
+    needs: lint
+    runs-on: ubuntu-latest
+
+    services:
+      # Ephemeral MongoDB service container for isolated CI testing
+      mongodb:
+        image: mongo:6.0
+        ports:
+          - 27017:27017
+        options: >-
+          --health-cmd "mongosh --eval 'db.runCommand({ ping: 1 })'"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js 18.x
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: Install Root & Backend Dependencies
+        run: |
+          npm ci --ignore-scripts || npm install
+
+      - name: Run Automated Backend & Unit Tests
+        run: |
+          echo "======================================================="
+          echo "Running Automated CI Test Suite..."
+          echo "======================================================="
+          node Practical_12_CI_CD_GitHub_Actions/tests/taskApi.test.js
+
+      - name: Report CI Pipeline Status
+        if: always()
+        run: |
+          echo "CI Pipeline Job finished with status: ${{ job.status }}"

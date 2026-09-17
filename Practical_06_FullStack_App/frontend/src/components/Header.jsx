@@ -22,7 +22,7 @@ export default function Header({ backendHealth, theme, onToggleTheme, onOpenCrea
         <div className="status-pill" title={`Backend Server: ${isOnline ? 'Connected' : 'Offline'}`}>
           <span className={`status-dot ${isOnline ? 'online' : 'offline'}`}></span>
           <Database size={14} style={{ color: isOnline ? '#10b981' : '#ef4444' }} />
-          <span>{isOnline ? 'Backend Connected (5000)' : 'Backend Disconnected'}</span>
+          <span>{isOnline ? 'Backend Connected' : 'Backend Disconnected'}</span>
         </div>
 
         <button

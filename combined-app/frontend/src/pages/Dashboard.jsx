@@ -13,7 +13,13 @@ import {
   Code2, 
   Sparkles,
   Cpu,
-  Globe
+  Globe,
+  Lock,
+  Zap,
+  Activity,
+  Box,
+  GitBranch,
+  Bot
 } from 'lucide-react';
 import { getSystemHealth, getP6Stats } from '../services/api';
 import StatusBadge from '../components/StatusBadge';
@@ -94,6 +100,76 @@ export default function Dashboard() {
       tech: ['Full Stack', 'CORS', 'Optimistic UI', 'Toast System', 'CRUD'],
       route: '/p6',
       badge: 'Full Stack App'
+    },
+    {
+      id: 'p7',
+      number: '07',
+      title: 'Authentication & Middleware Pipeline',
+      desc: 'User registration/login with bcrypt password hashing, JWT signing, route protection middleware, input validation, and /me endpoint.',
+      icon: Lock,
+      tech: ['JWT', 'bcryptjs', 'Auth Middleware', 'Input Validation'],
+      route: '/p7',
+      badge: 'Security & Auth'
+    },
+    {
+      id: 'p8',
+      number: '08',
+      title: 'Performance Optimization & Lazy Loading',
+      desc: 'Route code splitting with React.lazy & Suspense, debounced minimum-delay loading fallbacks, and on-demand heavy chart analytics.',
+      icon: Zap,
+      tech: ['React.lazy', 'Suspense', 'Code Splitting', 'Rollup Chunks'],
+      route: '/p8',
+      badge: 'Performance'
+    },
+    {
+      id: 'p9',
+      number: '09',
+      title: 'In-Memory Caching & Query Optimization',
+      desc: 'High-speed caching using node-cache with 60s TTL, automatic write invalidation, and real-time hit/miss metrics reporting.',
+      icon: Server,
+      tech: ['node-cache', 'In-Memory TTL', 'Query Invalidation', 'Benchmark'],
+      route: '/p9',
+      badge: 'Backend Optimization'
+    },
+    {
+      id: 'p10',
+      number: '10',
+      title: 'Asynchronous Event-Driven Processing',
+      desc: 'Decoupled background notification processing using native Node.js EventEmitter, proven response-before-handler timestamp ordering.',
+      icon: Activity,
+      tech: ['EventEmitter', 'Non-blocking IO', 'Event Loop', 'Audit Logs'],
+      route: '/p10',
+      badge: 'Event Architecture'
+    },
+    {
+      id: 'p11',
+      number: '11',
+      title: 'Containerization with Docker & Compose',
+      desc: 'Multi-stage React frontend container (Nginx Alpine), lightweight Express backend container, MongoDB service, named volumes, and bridge network.',
+      icon: Box,
+      tech: ['Docker', 'Docker Compose', 'Multi-Stage Build', 'Nginx Alpine'],
+      route: '/p11',
+      badge: 'DevOps Containers'
+    },
+    {
+      id: 'p12',
+      number: '12',
+      title: 'CI/CD Pipeline with GitHub Actions',
+      desc: 'Automated continuous integration pipeline with automated test assertions, ESLint code checks, failure demonstration, and status badge.',
+      icon: GitBranch,
+      tech: ['GitHub Actions', 'CI/CD Workflows', 'Automated Tests', 'Linters'],
+      route: '/p12',
+      badge: 'DevOps CI/CD'
+    },
+    {
+      id: 'p13',
+      number: '13',
+      title: 'AI API Integration into Web Application',
+      desc: 'Server-side integration with Google Gemini AI for automated task descriptions, suggested priority, graceful degradation, and rate limiting.',
+      icon: Bot,
+      tech: ['Gemini 1.5 API', 'Server Secrets', 'Graceful Fallback', 'Rate Limit'],
+      route: '/p13',
+      badge: 'Full Stack AI'
     }
   ];
 

@@ -10,7 +10,12 @@ import {
   LayoutGrid, 
   Sun, 
   Moon, 
-  Activity 
+  Activity,
+  Lock,
+  Zap,
+  Box,
+  GitBranch,
+  Bot
 } from 'lucide-react';
 import { getSystemHealth } from '../services/api';
 
@@ -38,10 +43,17 @@ export default function Navbar({ theme, onToggleTheme }) {
     { to: '/', label: 'Overview', icon: LayoutGrid },
     { to: '/p1', label: 'P1: Portfolio', icon: User },
     { to: '/p2', label: 'P2: Routing', icon: ToggleLeft },
-    { to: '/p3', label: 'P3: GitHub API', icon: Github },
-    { to: '/p4', label: 'P4: Express API', icon: Server },
+    { to: '/p3', label: 'P3: GitHub', icon: Github },
+    { to: '/p4', label: 'P4: Express', icon: Server },
     { to: '/p5', label: 'P5: MongoDB', icon: Database },
-    { to: '/p6', label: 'P6: Full-Stack', icon: Layers }
+    { to: '/p6', label: 'P6: FullStack', icon: Layers },
+    { to: '/p7', label: 'P7: Auth', icon: Lock },
+    { to: '/p8', label: 'P8: Lazy', icon: Zap },
+    { to: '/p9', label: 'P9: Cache', icon: Server },
+    { to: '/p10', label: 'P10: Events', icon: Activity },
+    { to: '/p11', label: 'P11: Docker', icon: Box },
+    { to: '/p12', label: 'P12: CI/CD', icon: GitBranch },
+    { to: '/p13', label: 'P13: AI', icon: Bot }
   ];
 
   return (

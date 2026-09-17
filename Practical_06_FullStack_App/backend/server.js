@@ -6,8 +6,8 @@ require('dotenv').config();
 const taskRoutes = require('./routes/taskRoutes');
 
 const app = express();
-const PORT = process.env.PORT || 5000;
-const MONGO_URI = process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/taskdb';
+const PORT = process.env.PORT || 5006;
+const MONGO_URI = process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/taskdb_p6';
 
 // 1. Global Request Logger Middleware
 app.use((req, res, next) => {
